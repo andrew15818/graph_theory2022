@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xeCJK}
+\usepackage{tikz}
+%\usetikzlibrary{graphdrawing}
+%\usegdlibrary{arrows}
+\setCJKmainfont{Noto Serif CJK TC}
+\title{Graph Theory Homework 1}
+\author{Andr\'es Ponce \\
+\and
+P76107116
+\and
+彭思安}
+
+\begin{document}
+\maketitle
+\section{(True or False) There exists a simple graph with 6 vertices, whose degrees are $2,3,3,4,4,5$. }
+This statement is \textbf{false}.
+According to the Degree-Sum Theorem, given a vertex $v$ and its degree $d(v)$, the sum the degrees is 
+twice the number of edges in our graph.
+		\begin{equation}
+				\sum_{v\in V(G)} d(v) = 2e(G)
+		\end{equation}
+When counting the degrees, each edge gets counted exactly twice, since one edge connects one vertex $u$ to another vertex $v$.
+The total number of degrees then has to be an even number.
+A corollary of this rule is that a graph can have only an even number of vertices with odd degrees, since an even number of odd degrees 
+would result in an even degree count.
+In the list above, we have three vertices with odd degree, which violates the degree sum rule. 
+Such a graph can not exist.
+
+\section{Determine the values of $m,n$ such that a complete bipartite graph $K_{m,n}$ is a complete graph.}
+A \textbf{complete graph} is a graph for which there exists an edge between any pair of vertices $u, v, u\neq v$.
+In a bipartite graph, the vertices are split into two sets such that their union is $V(G)$.
+All the vertices from one partition have an edge to all the vertices in the other partition.
+
+The values $m=1, n=1$ satisfy the constraints.
+For the graph $K_{1,1}$, there is an edge connecting every pair of distinct vertices, which satisfies the definition of a complete graph,
+and also every node in one partition is connected to all the nodes in the other partition, satisfying the definition of a bipartite graph.
+
+\section{Briefly describe the definition of a simple graph.}
+Firstly, a graph $G$ is a of edges $E(G)$ and vertices $V(G)$, where edges connect two pairs of endpoints.
+A simple graph is a graph that does not have any loops or multiple edges.
+Loops are edges with equal endpoints,and multiple edges refer to more than one edge that has the same pair of 
+endpoints.
+
+\section{Draw the complement of the following graph}
+\begin{equation}
+\centering
+\begin{tikzpicture}[node distance=5em]
+	\node (u) at (0,0) {u};
+	\node (y) [below left of=u] {y};
+	\node (v) [below right of=u] {v};
+	\node (x) [below right of=y] {x};
+	\node (w) [below right of=v] {w};
+
+	\path[-] (u) edge (y);
+	\path[-] (u)  edge (v);
+	\path[-]  (u) edge  (x);
+	\path[-]  (y) edge  (x);
+	\path[-]  (v) edge  (w);
+	\path[-]  (x) edge  (w);
+\end{tikzpicture}
+\end{equation}
+
+\section{Describe the definition of self-complementary.}
+\section{What is a walk? What is a trail? Is a walk a trail?}
+\section{Describe the degree-sum formula.}
+\section{Prove or disprove: If $u$ and $v$ are the only vertices of odd degree in a graph $G$, then $G$ contains a $u-v$ path.}
+\section{(True or False) Every disconnected graph has an isolated vertex.}
+\section{Prove or disprove. If every vertex of a simple graph $G$ has degree 2, then $G$ is a cycle.}
+\end{document}
