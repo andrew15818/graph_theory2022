@@ -129,5 +129,37 @@ Trails do not have repeated edges, but \emph{can} have repeated vertices.
 If vertex $v_i$ in the trail is repeated, we can remove the k-length cycle $v_i,\dots,v_{i+k}$, and end up with a path.
 
 \section{(True or False) Every disconnected graph has an isolated vertex.}
+This statement is \textbf{false}.
+A graph is \textbf{connected} when there is a path between any two vertices $u,v$, and \textbf{disconnected} when there is
+at least one pair of vertices without a path.
+I graph with an isolated vertex would be disconnected, since an isolated vertex has degree $0$ and so no path exists
+between this vertex and any other.
+However, any graph with more than one component also is disconnected and may not have an isolated vertex.
+
+For example, the following graph is disconnected with two components,
+yet no isolated vertex.
+
+\begin{equation}
+		\begin{tikzpicture}[node distance=5em]
+			\node (u) at (0,0) {u};
+			\node (y) [below of=u] {y};
+			\node (w) [right of=u] {w};
+			\node (x) [below of=w] {x};
+
+			\path[-] (u) edge (y);
+			\path[-] (w) edge (x);
+		\end{tikzpicture}
+\end{equation}
+
 \section{Prove or disprove. If every vertex of a simple graph $G$ has degree 2, then $G$ is a cycle.}
+Lemma 1.2.5 in the textbook states that if every vertex in $G$ has degree at least 2, then $G$ contains
+a cycle.
+Thus we know that the graph contains a cycle, and we want to show the graph \emph{is} a cycle.
+If every node has degree $2$, then we can think of a path that travels along $G$ from vertex $v_i$ to 
+$v_{i+1}$.
+A path contributes $2$ to a node's degree, so all the non-endpoint vertices in the path will 
+have degree 2, except for the endpoints of the path which both have degree $1$.
+To make every vertex have degree $2$, we would need an edge connecting $v_1,v_n$, which would create
+a cycle for the entire graph.
+Thus, if every node has degree $2$, then the graph has to be a cycle.
 \end{document}
